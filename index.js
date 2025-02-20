@@ -6,12 +6,9 @@ const app = express();
 
 app.use(express.json());
 
-const sequelize = new Sequelize('database', 'username', 'password', {   
-    host: 'localhost',
-    dialect: 'sqlite',
-    storage: './Database/SQBook.sqlite'
-});
+const dbUrl = 'postgres://webadmin:FATnvc19112@node71802-firstnodejs.proen.app.ruk-com.cloud:11799/Books'
 
+const sequelize = new Sequelize(dbUrl);
 const Book = sequelize.define('book', {
     id : {
         type: Sequelize.INTEGER,
